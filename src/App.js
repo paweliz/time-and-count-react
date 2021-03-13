@@ -21,6 +21,7 @@ function App() {
     event.preventDefault()
   //alert(`You entered ${time}`)
   }
+  
   function handleChangeMinutes(event){
     event.preventDefault()
     setMinutes(event.target.value)
@@ -80,8 +81,6 @@ function App() {
     }
   }   
   
-  //const timeOptions2 = timeNumbers.map((number)=><option key={number.toString()} value={number}>{number} s</option>)
-
   function timeOptions(string){
     let timeNumbers = []
     for (let i = 0; i<=59;i++){
@@ -100,10 +99,10 @@ function App() {
       <form className="submitForm" onSubmit={handleSubmit}>
       <div>Counter value: {serieCount}</div>
       <label htmlFor = "timeSet">Set Time: </label>
-      <select id='timeSetMins' className = "select-custom" name='mins' onChange={handleChangeMinutes}>
+      <select id='timeSetMins' className = "select-custom" name='mins' value = {minutes} onChange={handleChangeMinutes}>
         {timeOptions('min')}
       </select>
-      <select id='timeSetSeconds' className = "select-custom" name='secs' onChange={handleChangeSeconds}>
+      <select id='timeSetSeconds' className = "select-custom" name='secs' value = {seconds} onChange={handleChangeSeconds}>
         {timeOptions('s')}
       </select><br/>
       <button className={`button button-primary button-primary-${isActive ? 'active' : 'inactive'}`} disabled={time === 0} onClick={toggle}>
